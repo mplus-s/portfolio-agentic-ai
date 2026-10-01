@@ -1,0 +1,76 @@
+/* Portfolio — AI / Digital / Scientific design tokens.
+   Shared base with web-agent-navigator, llm-eval-harness and mcp-tool-gateway:
+   same surfaces, type, spacing and cyan primary action. Each project owns one
+   signature hue used only for its identity visuals. */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  color-scheme: dark;
+
+  /* surfaces */
+  --surface-base: #06070a;
+  --surface-raised: #0c0f16;
+  --surface-overlay: #12161f;
+  --surface-sunken: #030406;
+  --surface-hover: #161b26;
+
+  /* borders */
+  --border-subtle: #1b212c;
+  --border-strong: #2b3342;
+  --border-glow: rgb(76 243 255 / 0.35);
+
+  /* text */
+  --text-primary: #eef2f7;
+  --text-secondary: #93a1b5;
+  --text-muted: #7e8899;
+  --text-inverse: #05070a;
+
+  /* primary action — shared across all projects */
+  --accent: #4cf3ff;
+  --accent-hover: #7ef8ff;
+  --accent-quiet: #0c2a2e;
+  --accent-text: #7ff2ff;
+  --focus-ring: #4cf3ff;
+
+  /* project signatures — identity visuals only, never state */
+  --sig-navigator: #8b5cf6;
+  --sig-eval: #ff5fc8;
+  --sig-gateway: #ff9f43;
+  --sig: var(--accent); /* portfolio signature is the shared accent */
+
+  /* state */
+  --state-success: #39ff88;
+  --state-success-quiet: #0a2617;
+  --state-warning: #ffb84d;
+  --state-warning-quiet: #2a1e0a;
+  --state-danger: #ff4d6d;
+  --state-danger-quiet: #2a0d15;
+  --state-info: #4fa8d8;
+  --state-info-quiet: #0c1f2a;
+
+  /* type */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Space Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* spacing (4px base) */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  --space-9: 128px; --space-10: 192px;
+
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 28px; --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 24px 64px rgb(0 0 0 / 0.65);
+
+  /* motion */
+  --motion-press: 160ms;   /* button / chip press feedback */
+  --motion-fast: 150ms;    /* hover, colour, small state changes */
+  --motion-base: 250ms;    /* dialogs, toasts, reveals of UI */
+  --motion-slow: 600ms;    /* marketing-only morphs (accordion slices, scroll reveals) */
+  --ease: ease;                                   /* hover / colour */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);     /* enter / exit */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* on-screen movement */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);  /* sheets, drawers */
+}

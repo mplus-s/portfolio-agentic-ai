@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammad Shahzad — AI systems engineering</title>
+<meta name="description" content="Evaluation harnesses, secure tool gateways and autonomous web agents, engineered like lab instruments." />
+<link rel="stylesheet" href="./app.css" />
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="i-up" viewBox="0 0 16 16"><path d="M8 13V3M4 7l4-4 4 4" /></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4" /></symbol>
+  <symbol id="i-flat" viewBox="0 0 16 16"><path d="M3 8h10" /></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.8" /></symbol>
+  <symbol id="i-cross" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" /></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" /></symbol>
+</svg>
+<canvas class="field" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <span class="progress" aria-hidden="true"></span>
+  <a class="brand" href="#top" aria-label="Muhammad Shahzad, home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14.5" /><path d="M8 21 L12 11 L16 18 L20 11 L24 21" /></svg>
+    </span>
+    <span class="brand-name">Muhammad Shahzad</span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#method">Method</a>
+    <a href="#invariants">Invariants</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <a class="btn btn-primary btn-sm magnetic" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main id="top" class="page">
+
+  <!-- Attention -->
+  <section class="hero">
+    <div class="hero-copy">
+      <h1 class="hero-title">
+        <span class="line"><span class="line-inner">I build AI systems that</span></span>
+        <span class="line"><span class="line-inner"><span class="pill-img" style="--img: url('./assets/pill-specimen.webp')" aria-hidden="true"></span> prove they work</span></span>
+        <span class="line"><span class="line-inner">before they <em>ship.</em></span></span>
+      </h1>
+      <p class="hero-sub">Evaluation harnesses that block bad deploys, gateways that give models tools without handing over keys, and web agents that show every step they took. Each one measured, reproducible, and honest when it fails.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary magnetic" href="#work">See the work <span class="arrow"><svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></span></a>
+        <a class="btn btn-ghost" href="#method">How I work</a>
+      </div>
+    </div>
+
+    <figure class="specimen" aria-label="Rotating point-cloud specimen, decorative">
+      <div class="specimen-frame">
+        <canvas class="specimen-canvas" aria-hidden="true"></canvas>
+        <div class="specimen-hud mono" aria-hidden="true">
+          <span class="tl">SPECIMEN / 03</span>
+          <span class="tr"><b data-tick>000.000</b> rad</span>
+          <span class="bl">n = 1,024</span>
+          <span class="br">&sigma; 0.18</span>
+          <span class="cursor">x 0.000  y 0.000</span>
+        </div>
+        <div class="crosshair" aria-hidden="true"></div>
+      </div>
+      <figcaption>Three systems, one discipline: measure first.</figcaption>
+    </figure>
+  </section>
+
+  <!-- Interest: projects -->
+  <section id="work" class="chapter">
+    <div class="chapter-head">
+      <h2 class="chapter-title">Three instruments for putting models into production.</h2>
+      <p class="chapter-sub">Hover or focus a panel to open it. Each links to its own design reference.</p>
+    </div>
+
+    <div class="accordion" role="list">
+      <article class="slice is-open" role="listitem" style="--sig: var(--sig-eval)">
+        <button class="slice-trigger" aria-expanded="true" aria-controls="slice-eval">
+          <span class="slice-label">llm-eval-harness</span>
+        </button>
+        <div class="slice-body" id="slice-eval">
+          <div class="slice-media" role="img" aria-label="Ridgeline of score distributions shifting across a dashed threshold line" style="--img: url('./assets/art-eval.webp')"></div>
+          <div class="slice-content">
+            <h3>Continuous evaluation with a calibrated judge</h3>
+            <p>Versioned golden datasets, Ragas and DeepEval metrics, regression detection against a baseline, and a CI gate that exits non-zero. It replays from recorded cassettes, so CI runs without an API key.</p>
+            <ul class="stack mono"><li>Python 3.12</li><li>Ragas</li><li>DeepEval</li><li>FastAPI + HTMX</li></ul>
+            <a class="link-arrow" href="../llm-eval-harness/design/index.html">Open design <span class="arrow"><svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="slice" role="listitem" style="--sig: var(--sig-gateway)">
+        <button class="slice-trigger" aria-expanded="false" aria-controls="slice-gateway">
+          <span class="slice-label">mcp-tool-gateway</span>
+        </button>
+        <div class="slice-body" id="slice-gateway">
+          <div class="slice-media" role="img" aria-label="Requests stopping at a dashed secret boundary above a locked broker; one denied request bounces" style="--img: url('./assets/art-gateway.webp')"></div>
+          <div class="slice-content">
+            <h3>Tools for models, never the credentials</h3>
+            <p>An MCP resource server behind OAuth 2.1 with mandatory PKCE. Tool discovery is filtered by grants, a server-side broker holds every upstream secret, and the audit trail is append-only.</p>
+            <ul class="stack mono"><li>Node 24</li><li>MCP SDK</li><li>OAuth 2.1</li><li>SQLite</li></ul>
+            <a class="link-arrow" href="../mcp-tool-gateway/design/index.html">Open design <span class="arrow"><svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="slice" role="listitem" style="--sig: var(--sig-navigator)">
+        <button class="slice-trigger" aria-expanded="false" aria-controls="slice-nav">
+          <span class="slice-label">web-agent-navigator</span>
+        </button>
+        <div class="slice-body" id="slice-nav">
+          <div class="slice-media" role="img" aria-label="Wireframe of a legacy page with numbered marks and a click crosshair" style="--img: url('./assets/art-navigator.webp')"></div>
+          <div class="slice-content">
+            <h3>A web agent that shows its working</h3>
+            <p>Vision-language navigation over legacy portals: coordinate click mapping, DOM pruning and coherent emulation, all behind a strict allowlist. Every screenshot, mark and decision is recorded and can be replayed.</p>
+            <ul class="stack mono"><li>Playwright</li><li>Vision LLMs</li><li>Python</li><li>Trace replay</li></ul>
+            <a class="link-arrow" href="../web-agent-navigator/design/index.html">Open design <span class="arrow"><svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Interest: capabilities bento (4 x 2, dense) -->
+  <section class="chapter">
+    <div class="bento">
+      <article class="cell cell-a">
+        <h3>Evaluation is a gate, not a report</h3>
+        <p>Scores are shown against their threshold, and a regression blocks the merge.</p>
+        <svg class="dist" viewBox="0 0 400 180" aria-hidden="true">
+          <line class="dist-bar" x1="262" y1="10" x2="262" y2="170" />
+          <path class="dist-base" d="M0 170 C 80 170, 120 40, 190 40 S 300 170, 400 170" />
+          <path class="dist-cand" d="M0 170 C 110 170, 160 20, 240 20 S 340 170, 400 170" />
+        </svg>
+        <div class="legend mono"><span><i class="k-base"></i>baseline</span><span><i class="k-cand"></i>candidate</span><span><i class="k-bar"></i>0.75 bar</span></div>
+      </article>
+      <article class="cell cell-b">
+        <h3>Zero credentials in the model's context</h3>
+        <div class="keyline" aria-hidden="true">
+          <span class="node mono">model</span><span class="wire"><i></i></span><span class="node mono">gate</span><span class="wire"><i></i></span><span class="node node-lock mono">broker</span>
+        </div>
+      </article>
+      <article class="cell cell-c">
+        <h3>Replayed, not re-asked</h3>
+        <dl class="log mono">
+          <dt>replay</dt><dd>support-rag@v7</dd>
+          <dt>hits</dt><dd>412 / 412 cassettes</dd>
+          <dt>live</dt><dd>0 calls, 0 keys</dd>
+        </dl>
+        <p>CI runs the whole evaluation without an API key.</p>
+      </article>
+      <article class="cell cell-d">
+        <h3>Every step on disk first</h3>
+        <ol class="trace mono">
+          <li><span>06 click (412, 188)</span><b>written</b></li>
+          <li><span>07 read canvas</span><b>written</b></li>
+          <li class="is-live"><span>08 extract table</span><b>writing</b></li>
+        </ol>
+        <p>If the agent dies mid-run, the trace is still true up to the last action.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Desire: method, scrub text -->
+  <section id="method" class="chapter chapter-center">
+    <p class="scrub">A model in production is a hypothesis. I treat it like one: write down what should be true, build the instrument that measures it, record every run so it can be replayed, and let the measurement decide what ships. It's slower for a week and much faster for a year.</p>
+  </section>
+
+  <!-- Desire: plates, scale & fade -->
+  <section class="chapter plates">
+    <figure class="plate" style="--sig: var(--sig-eval)">
+      <div class="plate-img" role="img" aria-label="Run 184 detail screen: scores against thresholds and a trend chart" style="--img: url('./assets/eval-run.webp')"></div>
+      <figcaption>
+        <span class="mono">Run 184 vs baseline 171</span>
+        <strong>Faithfulness dropped 0.04 on 11 risk-tier cases. Deploy blocked.</strong>
+      </figcaption>
+    </figure>
+    <figure class="plate" style="--sig: var(--sig-gateway)">
+      <div class="plate-img" role="img" aria-label="Gateway audit trail: allow and deny rows with a redacted payload" style="--img: url('./assets/gw-audit.webp')"></div>
+      <figcaption>
+        <span class="mono">audit #40,221 · deny</span>
+        <strong>An analyst token called <code>ticket.create</code>. Scope missing, call refused, logged.</strong>
+      </figcaption>
+    </figure>
+    <figure class="plate" style="--sig: var(--sig-navigator)">
+      <div class="plate-img" role="img" aria-label="Web agent live run trace: steps, screenshots and marks" style="--img: url('./assets/nav-run.webp')"></div>
+      <figcaption>
+        <span class="mono">webnav_run_0042 · step 7</span>
+        <strong>Chart value found only on canvas. DOM strategy failed; vision strategy succeeded.</strong>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Desire: invariants carousel -->
+  <section id="invariants" class="chapter">
+    <div class="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Engineering invariants">
+      <div class="carousel-glyphs" aria-hidden="true">
+        <span style="--sig: var(--sig-eval)">EV</span>
+        <span style="--sig: var(--sig-gateway)">GW</span>
+        <span style="--sig: var(--sig-navigator)">WN</span>
+      </div>
+      <div class="carousel-track" aria-live="polite">
+        <blockquote class="quote is-active">
+          <p>A score is never a bare coloured cell. &ldquo;0.71 against a 0.75 bar&rdquo; is the information; a red square is not.</p>
+          <cite>llm-eval-harness, design system</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>The credential broker returns clients, never credentials. No secret ever crosses into a tool argument or a model's context.</p>
+          <cite>mcp-tool-gateway, architecture</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>A step is durable before the next one begins. If the process dies mid-run, the trace still tells the truth up to the last action.</p>
+          <cite>web-agent-navigator, run store</cite>
+        </blockquote>
+      </div>
+      <div class="carousel-controls">
+        <button class="icon-btn" data-dir="-1" aria-label="Previous invariant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg></button>
+        <span class="carousel-count mono"><b data-idx>1</b> / 3</span>
+        <button class="icon-btn" data-dir="1" aria-label="Next invariant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Action -->
+  <section id="contact" class="cta">
+    <h2 class="cta-title">Let's make your model <em>measurable.</em></h2>
+    <p class="cta-sub">Evaluation infrastructure, agent tooling and secure LLM integration.</p>
+    <!-- Replace with the real contact address before publishing. -->
+    <a class="btn btn-primary btn-xl magnetic" href="mailto:hello@example.com">Start a conversation <span class="arrow"><svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></span></a>
+  </section>
+
+  <footer class="footer">
+    <span>&copy; 2026 Muhammad Shahzad</span>
+    <nav class="footer-links" aria-label="Elsewhere">
+      <a href="#">GitHub</a><a href="#">LinkedIn</a><a href="mailto:hello@example.com">Email</a>
+    </nav>
+    <span class="mono footer-clock" aria-hidden="true">UTC <b data-clock>--:--:--</b></span>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

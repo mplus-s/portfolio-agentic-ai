@@ -1,0 +1,23 @@
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
+
+# Dependencies, build output, secrets
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+dist/
+test-results/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.log
+.DS_Store
+
+# Sub-projects live in their own repos/folders, not in the portfolio repo
+/web-agent-navigator/
+/mcp-tool-gateway/
+/llm-eval-harness/
